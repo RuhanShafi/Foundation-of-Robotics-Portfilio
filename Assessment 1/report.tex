@@ -1,0 +1,434 @@
+\documentclass[11 pt , a 4 paper ]{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usetikzlibrary{calc}
+\usepackage{anyfontsize}
+\usepackage{sectsty}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} % AMS Base Package
+\usepackage{amssymb} % AMS Symbols
+\usepackage{amsthm} % AMS
+\usepackage{hyperref} % Hyperrefferings
+\usepackage{amsfonts} % AMS Fonts
+\usepackage{tabto}
+\usepackage{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots} % Plots
+\pgfplotsset{width=10cm,compat=1.9}
+\usepackage[margin=1cm]{geometry}
+\usepackage[skins]{tcolorbox}
+\usepackage{listings}  %Code blocks
+\usepackage{enumitem} % Fancy Bullet points
+\usepackage{array} %Tables
+\usepackage{xcolor} % Text Color
+\usepackage{svg}
+\usepackage{pdfpages}
+\usepackage{array} %Tables
+\usepackage[table]{xcolor} % Text Color
+\usepackage{float}
+\usepackage{booktabs} % For professional horizontal lines
+\usepackage{siunitx}  % For aligning numbers on the decimal point
+\usepackage[table]{xcolor} % For adding color (e.g., zebra stripes)
+\usepackage{tabularx} % For tables that adjust to a specific width
+\usepackage{ragged2e} % for '\RaggedRight' macro (suppress full justification)
+\usepackage{booktabs} % for '\toprule', '\midrule', and '\bottomrule' macros
+
+\definecolor{aqua}{RGB}{3,164,186}
+\definecolor{grey}{RGB}{200,200,200}
+
+
+{\Huge\title {CSIT123 - Computing and Cyber Security Fundamentals}}
+
+\author{Ruhan Shafi}
+\date{\today}
+
+\theoremstyle{definition}
+\newtheorem{thm}{Defination}
+
+
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+\begin{document}
+		\pagestyle{empty}
+		\begin{tikzpicture}[remember picture,overlay]
+				\fill[BlueViolet] (current page.south west) rectangle (current page.north east);
+				\begin{scope}
+						\foreach \i in {2.5,...,22}
+						{\node[rounded corners,BlueViolet!90,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.west)+(2.5,-5)$) {} ;}
+					\end{scope}
+				\node[rounded corners,fill=BlueViolet!95,text =BlueViolet!5,regular polygon,regular polygon sides=6, minimum size=2.5 cm,inner sep=0,ultra thick] at ($(current page.west)+(2.5,-5)$) {{\includegraphics[scale=.06]{~/Notes/LaTex Work/logo4.png}}};
+				\foreach \i in {0.5,...,22}		
+				{\node[rounded corners,BlueViolet!90,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north west)+(2.5,0)$) {} ;}
+				\foreach \i in {0.5,...,22}
+				{\node[rounded corners,BlueViolet!98,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north east)+(0,-9.5)$) {} ;}
+				\foreach \i in {12}
+				{\node[fill = BlueViolet
+						,rounded corners,draw=BlueViolet,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.south east)+(-0.2,-0.45)$) {} ;}
+				\foreach \i in {21,...,6}
+				{\node[BlueViolet!95,rounded corners,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.south east)+(-0.2,-0.45)$) {} ;}
+				\node[left,BlueViolet!5,minimum width=0.625*\paperwidth,minimum height=3cm, rounded corners] at ($(current page.north east)+(0,-9.5)$){{\fontsize{25}{30} \selectfont \bfseries Assessment 1 Lab Report}};
+				\node[left,BlueViolet!10,minimum width=0.625*\paperwidth,minimum height=2cm, rounded corners] at ($(current page.north east)+(0,-11)$){{\huge \textit{Foundations of Robotics}}};
+				\node[left,BlueViolet!5,minimum width=0.625*\paperwidth,minimum height=2cm, rounded corners] at ($(current page.north east)+(0,-13)$){{\Large \textsc{Ruhan Shafi}}};
+			\end{tikzpicture}
+	\newpage
+	\ \vskip -1cm
+	\rightline{\includegraphics[scale=.06]{~/Notes/LaTex Work/logo3.png}}
+	
+	\vskip -40pt
+	
+	\noindent
+	{Foundations of Robotics | Ruhan Shafi (u3284342)}
+	
+	\vskip 5pt
+	
+	\noindent{\bf\Large Assessment 1: Lab Report}
+	
+	\vskip 7pt
+	\noindent{\bf\normalsize Lab Group:} Group 8 - Ruhan Shafi (u3284342) and Alex Scola - (u3324662)
+	{\color{aqua}\hrule height 1pt}
+	{\color{grey}\hrule height 1pt}
+	
+	\vskip 5pt
+
+
+ 
+
+	\section{Abstract}
+	
+	This report presents the design, implementation, and evaluation of a light-reactive autonomous robot control algorithm for the Sphero RVR mobile robot platform. The objective of the assignment was to develop a Sense-Think-Act (STA) control loop using ROS~2 and the \texttt{rclpy} Python library, such that the robot detects ambient light intensity above a defined threshold and responds by spinning in place, indefinately.\\
+
+	\noindent The implemented system subscribes to the RVR's front-mounted ambient light sensor topic, continuously comparing the measured illuminance (in Lux) against a calibrated threshold of 750 Lux. Upon detection of a bright light stimulus, the algorithm publishes angular velocity commands to the robot's motor controller via the \texttt{/cmd\_vel} topic, causing the RVR to spin at 1.5~rad/s. A timer-based control loop operating at 10~Hz ensured responsive and consistent actuation.
+	
+	
+
+	\section{Introduction}
+	
+	\subsection{Background and Context}
+	Autonomous mobile robots must continuously interact with their physical environment to perform useful tasks. At the foundation of most autonomous behaviour is a fundamental control paradigm known as the Sense-Think-Act (STA) loop. First formalised in behaviour-based robotics literature, the STA model describes a repeating cycle in which a robot reads data from its sensors (\texttt{Sense}), applies logic to decide on a course of action (\texttt{Think}), and then issues commands to its actuators (\texttt{Act}). This simple but powerful abstraction underpins everything from industrial manipulators to autonomous vehicles.\\
+	
+	\noindent The Sphero RVR is a differential-drive mobile robot platform equipped with a suite of onboard sensors including an ambient light sensor, a colour sensor, an IMU, and infrared emitters. It runs a ROS~2 application stack on an onboard Raspberry Pi, exposing sensor data and accepting motor commands through standard ROS~2 topics.
+
+	
+	
+	\subsection{Learning Objectives}
+	
+	\begin{itemize}
+		\item Understand and apply the Sense-Think-Act control paradigm in a physical
+		robotics context.
+		\item Subscribe to a ROS~2 sensor topic and correctly interpret the received
+		message data.
+		\item Publish velocity commands to a ROS~2 actuator topic to control robot
+		movement.
+		\item Design and implement a timer-based control loop using \texttt{rclpy}
+		that operates at a defined frequency.
+		\item Calibrate a sensor threshold empirically and reason about its effect on
+		system behaviour.
+		\item Handle edge cases such as timed actuation windows and safe robot
+		shutdown.
+	\end{itemize}
+  \section{Materials and Methods}
+  
+	\subsection{Equipement and Software}
+	Table 1 lists all hardware and software components used in this experiment.
+	\begin{center}
+		\begin{table}[hbt!]
+			\label{ES}
+			\vskip 5pt
+			\centering\begin{tabular}{|c|c|}
+				\hline
+					\textbf{Component} & \textbf{Details}\\
+					\hline
+					Sphero RVR & Differential-drive rover with onboard sensors and motor controllers\\
+					\hline
+					Onboard Raspberry Pi & Runs the ROS~2 application stack and FastDDS discovery server\\
+					\hline
+					Ambient Light Sensor & Front-mounted digital sensor; publishes illuminance in Lux\\
+					\hline
+					Laptop / Jupyter Container &
+					Runs \texttt{rclpy} nodes and the STA algorithm over Wi-Fi \\
+					\hline
+			\end{tabular}
+			\caption{Hardware and software components used in the experiment}
+		\end{table}
+	\end{center}
+	
+		\subsection{Network and Communication Setup}
+		
+		The RVR and the laptop operated on the same Wi-Fi subnet. Because multiple groups shared the network simultaneously, a FastDDS Discovery Server running on the RVR's Raspberry Pi was used to isolate and manage node discovery. Each group was assigned a unique \texttt{ROS\_DOMAIN\_ID} to prevent
+		cross-group topic interference with \texttt{ROS\_DOMAIN\_ID} being \texttt{8}.\\
+		
+		\noindent The following environment variables were configured on the laptop before initialising \texttt{rclpy}:
+		
+		\begin{lstlisting}[language=python]ROBOT_HOSTNAME = "192.168.1.76"
+CONSOLE_HOSTNAME = "192.168.1.208"   #laptop IP/hostname
+
+DISCOVERY_SERVER_PORT = 11811        
+ROS_DOMAIN_ID = "8"                
+
+# ROS 2 networking (Fast DDS discovery server)
+os.environ["ROS_DOMAIN_ID"] = ROS_DOMAIN_ID           
+os.environ["ROS_HOSTNAME"] = CONSOLE_HOSTNAME         
+os.environ["RMW_IMPLEMENTATION"] = "rmw_fastrtps_cpp" 
+os.environ["ROS_AUTOMATIC_DISCOVERY_RANGE"] = "SUBNET" 
+os.environ["ROS_DISCOVERY_SERVER"] = f"{DISCOVERY_SERVER_HOST}:{DISCOVERY_SERVER_PORT}"  
+os.environ["ROS_SUPER_CLIENT"] = "True"\end{lstlisting}
+		
+		\noindent These variables were set programmatically in Python using \texttt{os.environ} before any \texttt{rclpy} calls, ensuring the middleware was correctly configured at the point of initialisation. \texttt{rclpy} was then initialised once per kernel session with a guard to prevent double-initialisation, using the following code
+		
+\begin{lstlisting}[language=python]
+if not rclpy.ok():
+	rclpy.init()
+	print("rclpy initialised")
+else:
+	print("rclpy already running")\end{lstlisting}	
+  
+  \subsection{ROS~2 Topics Used - Software Stack}
+  
+	\begin{center}
+		\begin{table}[hbt!]
+			\label{ROS}
+			\vskip 5pt
+			\centering\begin{tabular}{|c|c|c|c|}
+			\hline
+				\textbf{ROS~2 Topic} & \textbf{Message Type} & \textbf{Direction} & \textbf{Purpose}\\
+				\hline
+					    /ambient\_light\_broadcaster &
+					sensor\_msgs/Illuminance &
+					Subscribe &
+					Ambient lux reading  \\
+					/ambient\_light&&&from RVR sensor\\
+					\hline
+					    /cmd\_vel &
+					geometry\_msgs/Twist &
+					Publish &
+					Linear and angular velocity  \\
+					&&&commands to motors\\
+					\hline
+			\end{tabular}
+			\caption{ROS~2 topics used for sensing, actuation and timing}
+		\end{table}
+	\end{center}
+
+\noindent The \texttt{Illuminance} message received on \texttt{/ambient\_light\_broadcaster/ambient\_light} contains a single floating-point field, \texttt{illuminance}, representing the measured light intensity in Lux. The \texttt{TwistStamp} message contains linear and angular velocity vectors; this implementation used only \texttt{twist.linear.x} (forward speed) and \texttt{twist.angular.z} (yaw rate), both in SI units.
+\subsection{Threshold Calibration Procedure}
+Before implementing the full STA algorithm, the ambient light sensor was observed independently using a dedicated subscriber node in a debug cell (as seen below )to verify that the sensor was working properly and was able to transmit it's reading. 
+\begin{lstlisting}[language=python]import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import Illuminance
+
+
+class LightSensorReaderNode(Node):
+	"""Subscribes to the illuminance topic and prints each reading."""
+
+	def __init__(self):
+		super().__init__('light_sensor_reader_node')
+			self.light_sub = self.create_subscription(
+			Illuminance,
+			'/ambient_light_broadcaster/ambient_light',
+			self.light_callback,
+			10
+		)
+		self.get_logger().info('LightSensorReaderNode started - listening for illuminance...')
+	
+	def light_callback(self, msg: Illuminance):
+		"""Called every time a new illuminance message arrives."""
+		lux = msg.illuminance
+		print(f'Illuminance: {lux:.2f} lux')
+
+
+def main():
+	print('Starting LightSensorReaderNode...')
+	try:
+		node = LightSensorReaderNode()
+		rclpy.spin(node)          # blocks; prints readings as they arrive
+	except KeyboardInterrupt:
+		print('Interrupted')
+	finally:
+		print('Node shutdown.')
+
+
+print('LightSensorReaderNode declared - call main() to run it')
+
+\end{lstlisting}
+
+\noindent During this debuging, Lux readings were recorded under two conditions to establish a suitable threshold:
+
+\begin{itemize}
+	\item Ambient lighting of the laboratory
+	\item Phone torch held approximately 10~cm from the sensor
+\end{itemize}
+
+\noindent Readings were observed in real time from the printed console output of the \texttt{LightSensorReaderNode}. The threshold was then set to a value clearly above the ambient baseline but reliably triggered by the phone torch at approximately 10 cm distance. An initial value of 750 Lux was chosen.
+\subsection{Algorithm Design and Implementation}
+The STA logic was implemented as a single \texttt{rclpy} Node class named \texttt{SenseThinkActNode}. The design separates the three phases clearly using ROS 2 commands.
+\subsubsection{Sense Phase}
+A subscriber to \texttt{/ambient\_light\_broadcaster/ambient\_light} triggers the \texttt{\_sense\_cb} callback each time a new light reading arrives (every ROS clock cycle). The callback stores the latest lux value in the instance variable \texttt{self.current\_lux}, making it available to the control loop.
+\begin{lstlisting}[language=python]
+class SenseThinkActNode(Node):
+	def __init__(self):
+		super().__init__('sense_think_act_node')
+		
+		# ---- SENSE: light sensor subscriber ---- #
+		self.light_sub = self.create_subscription(
+			Illuminance,
+			'/ambient_light_broadcaster/ambient_light',
+			self._sense_cb,
+			10
+		)
+		
+		self.spin_end_time: float = 0.0
+		
+	def _sense_cb(self, msg: Illuminance):
+		self.current_lux = msg.illuminance
+		self.get_logger().debug(f'Sensed: {self.current_lux:.1f} lux')
+\end{lstlisting}
+\subsubsection{Think and Act Phase}
+A ROS 2 timer fires at 10 Hz, triggering the \texttt{\_think\_and\_act\_cb} callback. This callback implements both the Think and Act phases in sequence. In the Think phase, the current lux value is compared against the \texttt{LIGHT\_THRESHOLD} constant. If the light is bright (i.e greater than the constant), the \texttt{spin\_end\_time} is updated to the current time plus five seconds, resetting the spin window. The \texttt{should\_spin} flag is then derived from whether the current time still falls within the spin window. In the Act phase, the appropriate \texttt{TwistStamped} command is published based on \texttt{should\_spin} depending on current time is greater than less than \texttt{spin\_end\_time}.\\
+
+\noindent The choice was made to use the ROS clock (\texttt{get\_clock().now()}) rather than Python's \texttt{time.time()} to avoid any ROS time overrides. The \texttt{spin\_end\_time} approach seperates the actuation duration from the instantaneous sensor state. This means that the robot continues spinning for the full five seconds even if the light is removed immediately after being detected, which will happen unless the light moves with the RVR.
+
+\begin{lstlisting}[language=Python]
+class SenseThinkActNode(Node):
+    def __init__(self):
+		super().__init__('sense_think_act_node')
+		
+	# ---- ACT: velocity command publisher ---- #
+	self.cmd_vel_pub = self.create_publisher(TwistStamped, '/cmd_vel', 10)
+	
+	# ---- THINK: timer drives the control loop ---- #
+	self.timer = self.create_timer(
+		1.0 / self.LOOP_RATE_HZ,
+		self._think_and_act_cb
+	)
+	
+	def _sense_cb(self, msg: Illuminance):
+		self.current_lux = msg.illuminance
+		self.get_logger().debug(f'Sensed: {self.current_lux:.1f} lux')
+	
+	def _think_and_act_cb(self):
+		cmd = TwistStamped()
+		
+		# Get the current ROS time in seconds
+		now = self.get_clock().now().nanoseconds / 1e9
+		
+		# ---- THINK ---- #
+		light_is_bright = self.current_lux > self.LIGHT_THRESHOLD
+		
+		if light_is_bright:
+			# Light detected - (re)start the 5-second spin window
+			self.spin_end_time = now + 5.0
+				self.get_logger().info(
+				f'BRIGHT ({self.current_lux:.1f} lux > {self.LIGHT_THRESHOLD}) '
+				f'-> spin window reset, stopping at t={self.spin_end_time:.1f}'
+				)
+		
+		should_spin = now < self.spin_end_time
+		
+		if should_spin:
+			# ---- ACT: spin ---- #
+			cmd.twist.linear.x  = 0.0
+			cmd.twist.angular.z = self.ANGULAR_SPEED
+			self.get_logger().info(
+			f'SPINNING - {self.spin_end_time - now:.1f}s remaining'
+			)
+		else:
+			# ---- ACT: stop ---- #
+			cmd.twist.linear.x  = 0.0
+			cmd.twist.angular.z = 0.0
+			self.get_logger().info(
+			f'DIM ({self.current_lux:.1f} lux) -> STOPPED'
+			)
+		
+		self.cmd_vel_pub.publish(cmd)
+	
+\end{lstlisting}
+\subsubsection{Safe Shutdown}
+
+A \texttt{stop\_robot()} method publishes a zero-velocity \texttt{TwistStamp} command and is called unconditionally in the \texttt{finally} block of the main function. This guarantees that the robot halts safely regardless of how the node is stopped, including keyboard interrupts and kernel restarts.
+\begin{lstlisting}[language=python]
+def stop_robot(self):
+	"""Publish a zero-velocity command to safely halt the robot."""
+	stop_cmd = TwistStamped()
+	stop_cmd.twist.linear.x  = 0.0
+	stop_cmd.twist.angular.z = 0.0
+	self.cmd_vel_pub.publish(stop_cmd)
+	self.get_logger().info('Safety stop sent')
+\end{lstlisting}
+\subsection{Experimental Procedure}
+The experiment was conducted as follows:
+
+\begin{enumerate}
+	\item ROS environment variables and drivers were configured and \texttt{rclpy} was initialised.
+	\item The \texttt{LightSensorReaderNode} was run to record baseline and stimulus lux values.
+	\item The \texttt{LIGHT\_THRESHOLD} was set based on the observed readings.
+	\item The \texttt{SpinTestNode} was run to verify motor control independently.
+	\item The full \texttt{SenseThinkActNode} was launched.
+	\item A phone torch was directed at the sensor from varying distances. The robot behaviour and console log output were observed and recorded.
+	\item The threshold was adjusted and the test repeated until the behaviour matched the expected outcome consistently.
+	\item The kernel was restarted to confirm safe shutdown and stop behaviour.
+\end{enumerate}
+\section{Results and Discussion}
+
+\subsection{Robot Behavioural Results}
+
+With the threshold set to 750 Lux and the \texttt{SenseThinkActNode} running, the following behaviours were consistently observed:
+
+\begin{itemize}
+	\item When the phone torch was directed at the sensor, the robot began spinning.
+	\item The robot continued spinning for the full five-second window after each light stimulus, regardless of whether the torch was held in place or immediately removed.
+	\item After the spin window elapsed, the robot stopped and remained stationary until a new stimulus was detected.
+	\item Repeated stimuli applied during an active spin window correctly reset the \texttt{spin\_end\_time}, extending the spin rather than restarting it from zero.
+	\item On kernel restart, the \texttt{stop\_robot()} safety call successfully halted the motors in all tested cases.
+\end{itemize}
+
+\subsection{Analysis - STA Loop Performance}
+
+The results confirm that the three-phase STA architecture performed as intended.
+The \textit{Sense} phase: a lightweight subscriber callback that only stores the latest lux value. The \textit{Think} phase, implemented inside the 10 Hz timer callback, correctly derived the \texttt{should\_spin} decision from the stored sensor state on every tick. The \textit{Act} phase published the appropriate \texttt{TwistStamp} command consistently and without error.
+
+
+\subsection{Potential Improvements}
+
+Several improvements could be made to increase the robustness and capability of the system:
+
+\begin{itemize}
+	\item \textbf{Hysteresis band.} Rather than a single threshold, a lower \textit{deactivation} threshold could be introduced so that the robot only stops spinning once the lux value falls below, for example, 450 Lux, preventing rapid on-off switching near the threshold boundary.
+	
+	\item \textbf{Proportional response.} Rather than binary spin-or-stop behaviour, the angular velocity could be scaled proportionally to the measured lux value
+	
+	\item \textbf{Multi-sensor fusion.} Adding a second sensor on the rear or side of the robot would allow direction-of-stimulus estimation, enabling the robot to turn \textit{towards} the light source rather than spinning arbitrarily.
+
+\end{itemize}
+
+
+
+\section{Conclusion}
+
+In conclusion, the assignment achieved its primary goal of implementing a working STA loop on a physical robot, and provided the group with valuable practical experience with ROS~2 publisher-subscriber communication, timer-based control, and the real-world constraints of network robotics. The skills learnt from this assessment such as ROS node architecture are directly transferable to more complex autonomous systems that will be present in future lab assessments.
+\end{document}
