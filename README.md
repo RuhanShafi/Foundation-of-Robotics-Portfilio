@@ -4,4 +4,4 @@
 
 ## Lab Task 2 - Mobile Reports
 Primary Focus Area : Localization, Navigation & Mapping
-
+![[./Assessment 2/report.pdf]]
