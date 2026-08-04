@@ -1,0 +1,266 @@
+\documentclass[11 pt , a 4 paper ]{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usetikzlibrary{calc}
+\usepackage{anyfontsize}
+\usepackage{sectsty}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} % AMS Base Package
+\usepackage{amssymb} % AMS Symbols
+\usepackage{amsthm} % AMS
+\usepackage{hyperref} % Hyperrefferings
+\usepackage{amsfonts} % AMS Fonts
+\usepackage{tabto}
+\usepackage{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots} % Plots
+\pgfplotsset{width=10cm,compat=1.9}
+\usepackage[margin=1cm]{geometry}
+\usepackage[skins]{tcolorbox}
+\usepackage{listings}  %Code blocks
+\usepackage{enumitem} % Fancy Bullet points
+\usepackage{array} %Tables
+\usepackage{xcolor} % Text Color
+\usepackage{svg}
+\usepackage{pdfpages}
+\usepackage{array} %Tables
+\usepackage[table]{xcolor} % Text Color
+\usepackage{float}
+\usepackage{booktabs} % For professional horizontal lines
+\usepackage{siunitx}  % For aligning numbers on the decimal point
+\usepackage[table]{xcolor} % For adding color (e.g., zebra stripes)
+\usepackage{tabularx} % For tables that adjust to a specific width
+\usepackage{ragged2e} % for '\RaggedRight' macro (suppress full justification)
+\usepackage{booktabs} % for '\toprule', '\midrule', and '\bottomrule' macros
+
+\definecolor{aqua}{RGB}{3,164,186}
+\definecolor{grey}{RGB}{200,200,200}
+
+
+{\Huge\title {CSIT123 - Computing and Cyber Security Fundamentals}}
+
+\author{Ruhan Shafi}
+\date{\today}
+
+\theoremstyle{definition}
+\newtheorem{thm}{Defination}
+
+
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+\begin{document}
+		\pagestyle{empty}
+		\begin{tikzpicture}[remember picture,overlay]
+				\fill[BlueViolet] (current page.south west) rectangle (current page.north east);
+				\begin{scope}
+						\foreach \i in {2.5,...,22}
+						{\node[rounded corners,BlueViolet!90,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.west)+(2.5,-5)$) {} ;}
+					\end{scope}
+				\node[rounded corners,fill=BlueViolet!95,text =BlueViolet!5,regular polygon,regular polygon sides=6, minimum size=2.5 cm,inner sep=0,ultra thick] at ($(current page.west)+(2.5,-5)$) {{\includegraphics[scale=.06]{~/Notes/LaTex Work/logo4.png}}};
+				\foreach \i in {0.5,...,22}		
+				{\node[rounded corners,BlueViolet!90,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north west)+(2.5,0)$) {} ;}
+				\foreach \i in {0.5,...,22}
+				{\node[rounded corners,BlueViolet!98,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north east)+(0,-9.5)$) {} ;}
+				\foreach \i in {12}
+				{\node[fill = BlueViolet
+						,rounded corners,draw=BlueViolet,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.south east)+(-0.2,-0.45)$) {} ;}
+				\foreach \i in {21,...,6}
+				{\node[BlueViolet!95,rounded corners,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.south east)+(-0.2,-0.45)$) {} ;}
+				\node[left,BlueViolet!5,minimum width=0.625*\paperwidth,minimum height=3cm, rounded corners] at ($(current page.north east)+(0,-9.5)$){{\fontsize{25}{30} \selectfont \bfseries Advanced Project}};
+				\node[left,BlueViolet!10,minimum width=0.625*\paperwidth,minimum height=2cm, rounded corners] at ($(current page.north east)+(0,-11)$){{\huge \textit{Foundations of Robotics}}};
+				\node[left,BlueViolet!5,minimum width=0.625*\paperwidth,minimum height=2cm, rounded corners] at ($(current page.north east)+(0,-13)$){{\Large \textsc{Ruhan Shafi}}};
+			\end{tikzpicture}
+	\newpage
+	\ \vskip -1cm
+	\rightline{\includegraphics[scale=.06]{~/Notes/LaTex Work/logo3.png}}
+	
+	\vskip -40pt
+	
+	\noindent
+	{Foundations of Robotics | Ruhan Shafi (u3284342)}
+	
+	\vskip 5pt
+	
+	\noindent{\bf\Large Advanced Project}
+	
+	\vskip 7pt
+	{\color{aqua}\hrule height 1pt}
+	{\color{grey}\hrule height 1pt}
+	
+	\vskip 5pt
+
+  \section*{Introduction to Braitenberg Vehicles}
+  Braitenberg vehicles are a class of simple autonomous agents conceived by the neuroscientist and cyberneticist Valentino Braitenberg in his 1984 thought experiment collection Vehicles: Experiments in Synthetic Psychology as simple thought experiments demonstrating how complex and seemingly intelligent behaviour can emerge from very simple sensor–motor connections. Braitenberg proposed a series of hypothetical “vehicles” equipped with basic sensors and motors, where the wiring between these components determined the robot’s behaviour \cite{braitenberg1984}. His work became influential in cybernetics, artificial intelligence, behavioural robotics, and embodied cognition because it showed that sophisticated behaviour does not always require complex computation or programming.\\
+
+\noindent Vehicle Type 1 is the simplest design. It contains a single sensor directly connected to a motor. In Vehicle 1, the robot responds proportionally to environmental stimuli such as light. For example, as light intensity increases, the motor speed may increase, causing the vehicle to move faster toward or away from the stimulus depending on the configuration. Although simple, this demonstrates reactive behaviour without decision-making algorithms.\\
+
+\noindent Vehicle Type 2 expands upon this concept by using two sensors and two motors. Different wiring arrangements create dramatically different behaviours. In Vehicle 2a, ipsilateral connections are used, meaning each sensor controls the motor on the same side. This configuration typically causes the robot to avoid light sources because the motor nearest the light speeds up, turning the robot away. In Vehicle 2b, contralateral or crossed connections are used, where each sensor controls the opposite motor. This produces photophilic behaviour, causing the robot to move toward light sources in a lifelike and purposeful manner \cite{wikibraitenberg}.\\
+
+\noindent For the museum project, Vehicle 2b has been selected because its attraction to light creates more engaging and observable behaviour for visitors. The robot appears curious and responsive, making it more interactive for demonstrations. Additionally, Vehicle 2b better illustrates emergent behaviour principles central to modern autonomous robotics, swarm robotics, and behaviour-based control systems.
+
+  \section*{Task 2 - GL5528 Sensor \& Vehicle 2b Motor Control Algorithm}
+  \textbf{Assumptions}
+  \begin{enumerate}
+    \item The robot has two GL5528 LDR sensors in a voltage divider circuit; one mounted on the left side of the vehicle and one on the right side of the vehicle
+    \item The microcontroller reads each LDR as an analogue voltage value in the range 0–1023 (10-bit ADC)
+    \item Higher ADC reading = lower resistance = brighter light (as LDR resistance decreases with increasing illumination)
+    \item Two DC motors are controlled by a PWM signal in the range 0–255 (mapped from sensor range)
+    \item Vehicle 2b wiring: LEFT sensor drives RIGHT motor, RIGHT sensor drives LEFT motor (contralateral)
+    \item \texttt{MAX\_ADC} = 1023, \texttt{MAX\_PWM} = 255
+    \item A minimum speed threshold \texttt{MIN\_SPEED} is applied so the vehicle always moves forward even in darkness
+    \item Motors accept a speed value between 0 and 255 via \texttt{SET\_MOTOR\_SPEED(motor, speed)}
+  \end{enumerate}
+\begin{lstlisting}[mathescape=true]
+// Braitenberg Vehicle 2b (Aggressor) - Light Seeking Behaviour
+// Sensor:  GL5528 LDR in voltage divider (higher reading = more light)
+// Wiring:  LEFT sensor $\rightarrow$ RIGHT motor  |  RIGHT sensor $\rightarrow$ LEFT motor
+// Inputs:  Analogue ADC readings from left and right LDR sensors (0-1023)
+// Outputs: PWM speed signals to left and right motors (0-255)
+
+// Constants
+MAX_ADC   $\leftarrow$ 1023
+MAX_PWM   $\leftarrow$ 255
+MIN_SPEED $\leftarrow$ 50      // Minimum motor speed to ensure forward motion in darkness
+
+METHOD BraitenbergVehicle2b()
+
+    WHILE (TRUE)
+
+        // Step 1: Read both light sensors
+        READ leftSensorValue       // ADC reading from left GL5528  (0-1023)
+        READ rightSensorValue      // ADC reading from right GL5528 (0-1023)
+
+        // Step 2: Map sensor readings to motor PWM speed values (0-255)
+        // Higher light reading on one side \rightarrow faster motor on opposite side
+        // This causes the vehicle to turn toward the brighter light source
+        leftMotorSpeed  $\leftarrow$ (rightSensorValue * MAX_PWM) / MAX_ADC
+        rightMotorSpeed $\leftarrow$ (leftSensorValue  * MAX_PWM) / MAX_ADC
+
+        // Step 3: Apply minimum speed threshold
+        // Ensures the vehicle keeps moving even when ambient light is very low
+        IF (leftMotorSpeed < MIN_SPEED) THEN
+            leftMotorSpeed $\leftarrow$ MIN_SPEED
+        ENDIF
+
+        IF (rightMotorSpeed < MIN_SPEED) THEN
+            rightMotorSpeed $\leftarrow$ MIN_SPEED
+        ENDIF
+
+        // Step 4: Clamp motor speeds to valid PWM range
+        IF (leftMotorSpeed > MAX_PWM) THEN
+            leftMotorSpeed $\leftarrow$ MAX_PWM
+        ENDIF
+
+        IF (rightMotorSpeed > MAX_PWM) THEN
+            rightMotorSpeed $\leftarrow$ MAX_PWM
+        ENDIF
+
+        // Step 5: Send computed speeds to motors
+        CALL SET_MOTOR_SPEED("LEFT",  leftMotorSpeed)
+        CALL SET_MOTOR_SPEED("RIGHT", rightMotorSpeed)
+
+    ENDWHILE
+
+ENDMETHOD\end{lstlisting}
+  \section*{Task 3a - Distance Tracking: Sensor Selection and System Description}
+  To track the total distance the Braitenberg vehicle travels in a day, the most appropriate and practical sensor choice is a Hall effect magnetic encoder attached to one of the drive wheels. A small permanent magnet is fixed to the wheel hub, and the Hall effect sensor is mounted on the chassis adjacent to it. Each time the wheel completes one rotation, the magnet passes the sensor and triggers a digital pulse. By counting these pulses over time and multiplying by the known circumference of the wheel, the total distance travelled can be continuously accumulated. The peripheral components required are the following: the Hall effect sensor itself (such as an A3144 or similar), a small neodymium magnet, a pull-up resistor on the signal line, and a microcontroller with a digital interrupt pin to count pulses reliably without polling.\\
+
+  \noindent Simplifying assumptions: the wheel does not slip on the museum floor surface; the wheel diameter is constant and known; both wheels travel the same distance (pure forward motion is assumed for distance summation purposes, meaning turning adds arc-length distance which is acceptable for a daily total); and the microcontroller remains powered for the full operating day with distance accumulated in a running total stored in memory, printed or displayed at the end of the day.\\
+
+\noindent At the end of the museum's operating day, the total pulse count is multiplied by the wheel circumference ($\pi \times$  wheel diameter) divided by the number of magnets per revolution (one in this case) to yield the total distance in metres. This approach is mechanically simple, computationally low-cost, robust to the lighting conditions of the museum environment (unlike optical encoders which can be affected by ambient light, a relevant concern given the GL5528 sensors already in use), and entirely self-contained.
+  \section*{Task 3b - Distance Tracking Pseudocode}
+  \textbf{Assumptions}
+  \begin{enumerate}
+    \item One Hall effect sensor is mounted on the left drive wheel
+    \item One magnet per wheel revolution produces one digital pulse per rotation
+    \item \texttt{WHEEL\_DIAMETER} is known and fixed in metres
+    \item \texttt{READ\_ENCODER\_PULSE()} returns \texttt{1} if a new pulse has been detected since the last check, \texttt{0} otherwise
+    \item \texttt{GET\_TIME()} returns current time in hours (24-hour format)
+    \item The operating day runs from \texttt{START\_HOUR} (e.g. 9am) to \texttt{END\_HOUR} (e.g. 5pm)
+  \end{enumerate}
+\begin{lstlisting}[mathescape=true]
+// Distance Tracking using Hall Effect Wheel Encoder
+// Counts wheel rotations via magnetic pulses and converts to distance
+// Resets at the start of each operating day and reports total at close
+
+// Constants
+WHEEL_DIAMETER $\leftarrow$ 0.065        // Wheel diameter in metres (e.g. 65mm wheel)
+WHEEL_CIRCUMFERENCE $\leftarrow$ PI * WHEEL_DIAMETER   // Distance per full rotation
+PI $\leftarrow$ 3.14159265
+START_HOUR $\leftarrow$ 9                // Museum opening time (9:00am)
+END_HOUR   $\leftarrow$ 17               // Museum closing time (5:00pm)
+
+METHOD TrackDailyDistance()
+
+    // Step 1: Initialise counters at start of day
+    pulseCount    $\leftarrow$ 0
+    totalDistance $\leftarrow$ 0.0
+
+    PRINT "Distance tracking started."
+
+    // Step 2: Continuously count encoder pulses during operating hours
+    WHILE (GET_TIME() < END_HOUR)
+
+        // Read the encoder - returns 1 if a new pulse detected, else 0
+        encoderPulse $\leftarrow$ READ_ENCODER_PULSE()
+
+        IF (encoderPulse = 1) THEN
+            // One pulse = one full wheel rotation
+            pulseCount    $\leftarrow$ pulseCount + 1
+            totalDistance $\leftarrow$ pulseCount * WHEEL_CIRCUMFERENCE
+        ENDIF
+
+    ENDWHILE
+
+    // Step 3: Operating day has ended - report total distance
+    PRINT "Museum closed. Daily distance report:"
+    PRINT "Total rotations : " + pulseCount
+    PRINT "Total distance  : " + totalDistance + " metres"
+
+    RETURN totalDistance
+
+ENDMETHOD
+
+// --- Main Program ---
+WHILE (GET_TIME() < START_HOUR)
+    // Wait until museum opens
+ENDWHILE
+
+CALL TrackDailyDistance() RETURNING totalDistance
+\end{lstlisting}
+
+\begin{thebibliography}{1}
+
+\bibitem{braitenberg1984}
+Braitenberg, V. (1984). \textit{Vehicles: Experiments in synthetic psychology}. MIT Press.
+
+\bibitem{wikibraitenberg}
+Wikipedia contributors. (2026, May 16). \textit{Braitenberg vehicle}. Wikipedia. \url{https://wikipedia.org}
+\end{thebibliography}
+\end{document}
